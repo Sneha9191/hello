@@ -6,6 +6,11 @@ pipeline {
         sh 'python3 --version'
       }
     }
+    stage('clone') {
+      steps {
+        git branch: 'master', credentialsId: 'git', url: 'https://github.com/Sneha9191/hello.git'
+      }
+    }
     stage('hello') {
       steps {
         sh 'python3 hello.py'
